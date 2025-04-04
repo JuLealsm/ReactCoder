@@ -1,0 +1,84 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.pageTitle{
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+}
+/*****************NAVBAR**************/
+.navbar{
+  background-image: url("/SlowLivingBanner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 800px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.navbarLogoCart-Container {
+  max-width: 1880px;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rem;
+}
+
+.navbarLinks-Container{
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.navLink{
+  margin-left: 30px;
+  text-decoration: none;
+  color: #1f1f1f;
+  font-size: 20px;
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+  transition: all 0.4s ease ;
+}
+
+.navLink:hover {
+  font-size: 25px;
+  text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-2px);
+}
+
+.logo{
+  width: 100px;
+  margin-left: 30px;
+}
+
+/********* CART WIDGET **************/
+.cartwidget{
+  margin-right: 30px;
+}
+
+
+/**************MOBILE RESPONSIVE*****************/
+
+@media (max-width: 768px) {
+  navbarLinks-Container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .navLink {
+    font-size: 1rem;
+    text-align: center;
+    white-space: normal;
+  }
+}
