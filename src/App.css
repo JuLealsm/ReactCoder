@@ -5,6 +5,9 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+body{
+  margin: 0;
+}
 
 .pageTitle{
   font-family: "Atkinson Hyperlegible Mono", sans-serif;
