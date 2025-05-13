@@ -2,24 +2,26 @@ import CartWidget from "./CartWidget"
 import { RiCandleLine } from "react-icons/ri";
 import { PiNotebookDuotone } from "react-icons/pi";
 import { PiTeaBag } from "react-icons/pi";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
     return(
         <nav className="navbar">
             <div className="navbarLogoCart-Container">
-                <a href="#">
+                <NavLink to={'/'}>
                     <img className="logo" src="../SlowLivingLogo.png" alt="" />
-                </a>
+                </NavLink>
+                <p className="navbarTitle">The Slow Living Way</p>
                 <CartWidget />
             </div>
             <div className="navbarLinks-Container">
-                <a className="navLink" href=""><RiCandleLine /> Aromatherapy and Well-being</a>
-                <a className="navLink" href=""><PiNotebookDuotone /> Journaling and Creativity</a>
-                <a className="navLink" href=""><PiTeaBag /> Teas and Infusers</a>
+                <NavLink className="navLink" to={"/category/Aromatherapy and Well-being"}><RiCandleLine /> Aromatherapy and Well-being</NavLink>
+                <NavLink className="navLink" to={"/category/Journaling and Creativity"}><PiNotebookDuotone /> Journaling and Creativity</NavLink>
+                <NavLink className="navLink" to={"/category/Teas and Infusers"}><PiTeaBag /> Teas and Infusers</NavLink>
             </div>
         </nav>
-    )
+    )   
 
 }
 

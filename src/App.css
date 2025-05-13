@@ -4,13 +4,18 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 body{
   margin: 0;
+  background-color: #EBE9E5;
+  min-height: 100vh;
 }
 
 .pageTitle{
   font-family: "Atkinson Hyperlegible Mono", sans-serif;
+  text-decoration: underline;
+  color: #1f1f1f;
 }
 /*****************NAVBAR**************/
 .navbar{
@@ -61,12 +66,190 @@ body{
   width: 100px;
   margin-left: 30px;
 }
+.navbarTitle{
+  color: #EBE9E5;
+  font-weight: bold;
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+}
+
+/********* SCROLL TO TOP BUTTON **************/
+.scrollToTopButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: rgba(235, 233, 229, 0.5);
+  color: #7B948E;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
 
 /********* CART WIDGET **************/
 .cartwidget{
   margin-right: 30px;
 }
+/********** ITEM LIST *****************/
+.item-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
+/********** ITEM *****************/
+.productCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  border: 4px solid #7B948E;
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.productCard:hover{
+  background-color: #D5D0CA;
+}
+
+.productImg{
+  border: 3px solid #7B948E;
+  border-radius: 15px;
+  /*background-color: #7b948e44 ;*/
+  width: 300px;
+}
+
+.LinkViewDetails{  
+  text-decoration: none;
+  font-weight: bold;
+  color: #7B948E;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+.LinkViewDetails:hover{
+  color: rgb(68, 81, 78);
+}
+
+.btnAddToCart{
+  border: 2px solid #9a9a9a;
+  border-radius: 10px;
+  background-color: #f1e8df;
+  box-shadow: 8px 8px 0px 0px #7B948E;
+  padding: 10px 25px 10px 25px;
+  max-width: 150px;
+  color: #253c37;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btnAddToCart:hover {
+  background-color: #f0f0f0; 
+}
+
+.btnAddToCart:active {
+  box-shadow: 0px 2px 0px 0px #e0e0e0;
+  transform: translateY(2px);
+}
+
+/********** ITEM DETAILS*****************/
+.item-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 800px); /* Subtract navbar height */
+  padding: 2rem;
+}
+
+.productCardDetails {
+  max-width: 500px;
+  border: 4px solid #7B948E;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.closeDetails-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  color: #7B948E;
+  transition: all 0.3s ease;
+}
+
+.closeDetails-btn:hover {
+  color: #253c37;
+  transform: scale(1.1);
+}
+
+.productImgDetails {
+  border: 3px solid #7B948E;
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.productCardDetails h2 {
+  margin: 20px 0;
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+  color: #253c37;
+}
+
+.productCardDetails p {
+  margin: 10px 0;
+  font-family: "Atkinson Hyperlegible Mono", sans-serif;
+  color: #1f1f1f;
+}
+
+.productCardDetails .btnAddToCart {
+  margin-top: 20px;
+}
+
+/**************ITEM AMOUNT*****************/
+.amount-btn{
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f1e8df;
+  border: 2px solid #7B948E;
+  border-radius: 5px;
+  min-width: 30px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1 !important;
+}
+
+.amount-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.amountInput{
+  width: 40px;
+  text-align: center;
+  border: 2px solid #7B948E;
+  border-radius: 5px;
+  padding: 5px;
+}
 
 /**************MOBILE RESPONSIVE*****************/
 

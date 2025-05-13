@@ -1,19 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import ItemDetailsContainer from './components/ItemDetailsContainer'
+import ItemListContainer from './components/ItemListContainer'
 import './App.css'
 import Navbar from './components/Navbar'
-import ItemListContainer from './components/ItemListContainer'
-
+import ScrollToTopButton from './components/ScrollToTopButton'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NotFound404 from './components/NotFound404'
 
 function App() {
 
-
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <ItemListContainer message = "Catálogo de Productos"/>
-    </div>
+      <Routes>
+        <Route path='/' element={<ItemListContainer message="Catálogo de Productos"  /> }/>
+        <Route path='/category/:categoryId' element={<ItemListContainer message="Category: "  /> }/>
+        <Route path='/product/:id' element={<ItemDetailsContainer />}/>
+        <Route path='*' element={<NotFound404 />}/>
+      </Routes>
+      <ScrollToTopButton />
+    </BrowserRouter>
+
+    
     
   )
 }
