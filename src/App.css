@@ -251,6 +251,13 @@ body{
   padding: 5px;
 }
 
+/**************LOADER*****************/
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /**************MOBILE RESPONSIVE*****************/
 
 @media (max-width: 768px) {

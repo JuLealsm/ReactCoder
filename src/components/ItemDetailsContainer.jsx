@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getItem } from "../mock/asyncMock";
 import ItemDetail from "./ItemDetails";
 import { useParams } from "react-router-dom";
+import LoaderComponent from "./LoaderComponent";
 
 const ItemDetailsContainer = ()=> {
     const [loading, setLoading] = useState(true);
@@ -10,14 +11,15 @@ const ItemDetailsContainer = ()=> {
 
     useEffect(() => {
         getItem(id)
-        .then (res => {setDetail(res); setLoading(false);})
+        .then (res => {setDetail(res)})
         .catch((error)=>console.log(error))
+        .finally(()=>setLoading(false))
 
     }, [id]);
 
     return(
         <div className="item-details-container">
-            {loading ? (<p>Loading...</p>) : (<ItemDetail detail={detail} />)}
+            {loading ? (<LoaderComponent/>) : (<ItemDetail detail={detail} />)}
         </div>
     )
 }
