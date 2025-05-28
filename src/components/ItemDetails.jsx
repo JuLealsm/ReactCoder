@@ -28,9 +28,9 @@ function ItemDetail({ detail }) {
             <p>{description}</p>
             <p>Precio: ${price},00</p>
             {itemAdded 
-                ?<div>
-                    <Link to={`/`} >Go to cart</Link>
-                    <Link to={`/`}>Keep Browsing</Link>
+                ?<div className="itemAdded">
+                    <Link to={`/`} className="itemAdded-Links" >Keep Browsing</Link>
+                    <Link to={`/cart`} className="itemAdded-Links" >Go to cart</Link>
                 </div>
                 :<ItemAmount stock={stock} onAdd={onAdd} />
             }

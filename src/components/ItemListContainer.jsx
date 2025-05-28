@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
-import { fetchData } from "../mock/asyncMock"
+import { fetchData, data } from "../mock/asyncMock"
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import LoaderComponent from "./LoaderComponent";
+import { collection, getDocs, query, where, addDoc } from "firebase/firestore";
+import { db } from "../service/firebase";
 
 function ItemListContainer({ message, onViewDetails }){
     const [products, setProducts]= useState ([]);
@@ -11,19 +13,21 @@ function ItemListContainer({ message, onViewDetails }){
     const {categoryId} = useParams()
 
     useEffect(() => {
-    setLoading(true); 
-
-    fetchData()
-        .then((res) => {
-        if (categoryId) {
-            setProducts(res.filter((prod) => prod.category === categoryId));
-        } else {
-            setProducts(res);
-        }
+        setLoading(true);
+        const productsCollection = categoryId ? query(collection(db,"Items"), where("category","==", categoryId)) :collection(db,"Items");
+        getDocs(productsCollection)
+        .then((res)=>{
+            const list = res.docs.map((doc)=>{
+                return{
+                    id:doc.id,
+                    ...doc.data()
+                }
+            })
+            setProducts(list)
         })
-        .catch((err) => setError(err))
-        .finally(() => setLoading(false));
-    }, [categoryId]);
+        .catch((error)=>console.log(error))
+        .finally(()=>setLoading(false))
+    },[categoryId])
 
 
         return(

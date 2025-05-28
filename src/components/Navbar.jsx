@@ -13,7 +13,9 @@ const Navbar = () => {
                     <img className="logo" src="../SlowLivingLogo.png" alt="" />
                 </NavLink>
                 <p className="navbarTitle">The Slow Living Way</p>
-                <CartWidget />
+                <NavLink to={'/cart'}>
+                    <CartWidget />
+                </NavLink>
             </div>
             <div className="navbarLinks-Container">
                 <NavLink className="navLink" to={"/category/Aromatherapy and Well-being"}><RiCandleLine /> Aromatherapy and Well-being</NavLink>

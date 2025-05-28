@@ -7,13 +7,12 @@ import ScrollToTopButton from './components/ScrollToTopButton'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound404 from './components/NotFound404'
 import { CartProvider } from './context/CartContext'
-import { getItems } from './firebase'
+import Cart from './components/Cart'
+import Checkout from './components/Checkout'
 
 function App() {
 
-  useEffect(()=>{
-    getItems();
-  },[]);
+
   
   return (
     <BrowserRouter>
@@ -24,6 +23,8 @@ function App() {
           <Route path='/category/:categoryId' element={<ItemListContainer message="Category: "  /> }/>
           <Route path='/product/:id' element={<ItemDetailsContainer />}/>
           <Route path='*' element={<NotFound404 />}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/checkout' element = {<Checkout/>}/>
         </Routes>
         <ScrollToTopButton />
       </CartProvider>
