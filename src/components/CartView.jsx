@@ -16,7 +16,7 @@ const {cart, removeItem, cartTotal, clear} = useContext(CartContext)
                 <span>Qty: {compra.quantity}</span>
                 <span>Unit: ${compra.price},00</span>
                 <span>Total: ${compra.price * compra.quantity},00</span>
-                <button onClick={() => removeItem(compra.id)}>🗑️</button>
+                <button onClick={() => removeItem(compra.id)} title="Remove product from cart">🗑️</button>
             </div>
             ))}
         </div>

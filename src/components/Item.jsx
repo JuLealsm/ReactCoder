@@ -1,17 +1,19 @@
 import { useContext, useState } from "react";
-import { CartContext } from "../context/CartContext"; // ajuste o caminho se necessário
+import { CartContext } from "../context/CartContext"; 
 import { Link } from "react-router-dom";
-import ItemAmount from "./ItemAmount"; // ajuste o caminho se necessário
+import ItemAmount from "./ItemAmount"; 
+import { toast } from "react-toastify";
 
 const Item = ({ prod }) => {
     const { name, price, img, id, stock } = prod;
     const [showAmount, setShowAmount] = useState(false);
-    const { addToCart } = useContext(CartContext); // <- Aqui acessa a função
+    const { addToCart } = useContext(CartContext); 
 
-    // Função chamada quando o usuário escolhe a quantidade e confirma
+    
     const handleAdd = (quantity) => {
-        addToCart(prod, quantity); // Adiciona o produto ao carrinho
-        setShowAmount(false); // Opcional: fecha o seletor após adicionar
+        addToCart(prod, quantity); 
+        setShowAmount(false);
+        toast.success(`${quantity}  "${name}" added to your Shopping Cart`);
     };
 
     return (

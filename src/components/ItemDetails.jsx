@@ -17,6 +17,7 @@ function ItemDetail({ detail }) {
     const onAdd = (amount) =>{
         addToCart(detail, amount)
         setItemAdded(true)
+        toast.success(`${amount}  Unitis added to your Shopping Cart`);
     }
     
 

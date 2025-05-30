@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import ItemDetailsContainer from './components/ItemDetailsContainer'
 import ItemListContainer from './components/ItemListContainer'
 import './App.css'
@@ -9,30 +8,29 @@ import NotFound404 from './components/NotFound404'
 import { CartProvider } from './context/CartContext'
 import Cart from './components/Cart'
 import Checkout from './components/Checkout'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-
-
-  
   return (
     <BrowserRouter>
       <CartProvider>
         <Navbar />
         <Routes>
-          <Route path='/' element={<ItemListContainer message="Catálogo de Productos"  /> }/>
-          <Route path='/category/:categoryId' element={<ItemListContainer message="Category: "  /> }/>
-          <Route path='/product/:id' element={<ItemDetailsContainer />}/>
-          <Route path='*' element={<NotFound404 />}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/checkout' element = {<Checkout/>}/>
+          <Route path='/' element={<ItemListContainer message="Catálogo de Productos" />} />
+          <Route path='/category/:categoryId' element={<ItemListContainer message="Category: " />} />
+          <Route path='/product/:id' element={<ItemDetailsContainer />} />
+          <Route path='*' element={<NotFound404 />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Routes>
         <ScrollToTopButton />
+        
+        <ToastContainer  />
       </CartProvider>
     </BrowserRouter>
-
-    
-    
   )
 }
 
 export default App
+
